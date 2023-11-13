@@ -38,3 +38,28 @@ console.log("typescript from src");
 // }
 
 // getters and setters in ts
+
+class User {
+  private _courseCount = 0;
+
+  get courseCount(): number {
+    //this is getter just use get keyword
+    // in front
+    return this._courseCount;
+  }
+
+  // set courseCount(count:number):number{
+  //     if(count<1) throw new Error("course count should be 1+")
+  // } this gives you error as in setter you should not have return type void is also not
+  // allowed
+  // correct way is
+  set courseCount(count: number) {
+    if (count < 1) throw new Error("course count should be 1+");
+  }
+
+  //   methods can also be private means they are not accessible outside of class
+  private getToken() {}
+
+  //   protected means accessible in only the class and inherited class
+  protected courseType: string = "codingff";
+}
